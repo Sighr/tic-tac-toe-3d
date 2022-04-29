@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 32
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bf537072a0498da1a238e091a54bc8, type: 3}
+  m_Name: Pieces
+  m_EditorClassIdentifier: Assembly-CSharp::PiecesVariable
+  value:
+  - {fileID: 11400000, guid: 70667a3db0120f040be02baf0f3fb074, type: 2}
+  - {fileID: 11400000, guid: a891af85ce413a14ca765d489e384ae3, type: 2}

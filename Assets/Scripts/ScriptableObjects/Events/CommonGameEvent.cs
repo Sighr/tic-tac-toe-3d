@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Events/Common")]
 public class CommonGameEvent : ScriptableObject
 {
     private readonly List<CommonGameEventListener> _eventListeners = new List<CommonGameEventListener>();

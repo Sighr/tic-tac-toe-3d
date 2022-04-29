@@ -8,12 +8,12 @@ public class Cell : MonoBehaviour
     private Material _material;
     private Color _baseColor;
     
-    private Piece _piece;
+    public Piece pieceFilled {get; private set;}
     private GameObject _instantiated;
 
     private bool isSelected;
     
-    public bool isFilled => _piece != null;
+    public bool isFilled => pieceFilled != null;
 
     private void Start()
     {
@@ -52,7 +52,7 @@ public class Cell : MonoBehaviour
         {
             return;
         }
-        _piece = piece;
+        pieceFilled = piece;
         _instantiated = Instantiate(piece.prefab, transform);
     }
     
@@ -62,7 +62,7 @@ public class Cell : MonoBehaviour
         {
             return;
         }
-        _piece = null;
+        pieceFilled = null;
         Destroy(_instantiated);
     }
 }

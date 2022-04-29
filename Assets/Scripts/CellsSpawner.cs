@@ -5,6 +5,7 @@ public class CellsSpawner : MonoBehaviour
     public GameObject cellPrefab;
 
     public GridCellsVariable cells;
+    public IntVariable gridDimension;
 
     private void Start()
     {
@@ -14,6 +15,8 @@ public class CellsSpawner : MonoBehaviour
     [ContextMenu("SpawnCells")]
     private void CreateCells()
     {
+        var dimension = gridDimension.value;
+        cells.value = new Cell[dimension, dimension, dimension];
         float halfCellSize = cellPrefab.transform.localScale.x / 2;
         var residual = (cells.dimension.value + 1) % 2;
         int border = cells.dimension.value / 2;

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 250738870c51427584b8b11ff624978c, type: 3}
+  m_Name: SimpleScoreLength
+  m_EditorClassIdentifier: 
+  cells: {fileID: 11400000, guid: 21532e4c1a6ed104ca082d25e10a7b06, type: 2}
+  pieces: {fileID: 11400000, guid: d319a316714ee64429b82a96fcbae5cf, type: 2}
+  scoreTemplates:
+  - length: 2
+    score: 1
+  - length: 3
+    score: 4
+  - length: 4
+    score: 15
+  - length: 5
+    score: 32
+  - length: 6
+    score: 70

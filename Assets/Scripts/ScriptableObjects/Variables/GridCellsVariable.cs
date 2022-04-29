@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "RuntimeVariables/GridCells")]
 public class GridCellsVariable : ScriptableObject
 {
     public Cell[,,] value;
     public IntVariable dimension;
     
-    void OnEnable()
+    private void OnEnable()
     {
-        value = new Cell[dimension.value, dimension.value, dimension.value];
         hideFlags |= HideFlags.DontUnloadUnusedAsset;
     }
 }

@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class PieceSpawner : MonoBehaviour
 {
-    public List<Piece> pieces;
-    private int currentId = 0;
+    public PiecesListVariable pieces;
+    public CommonGameEvent turnPerformed;
+    private int _currentId;
 
     public void OnSelected(Cell cell)
     {
-        cell.Fill(GetCurrentPiece());
-    }
-    
-    private Piece GetCurrentPiece()
-    {
-        Piece current = pieces[currentId];
-        currentId = (currentId + 1) % pieces.Count;
-        return current;
+        cell.Fill(pieces.value[_currentId]);
+        if (!cell.isFilled)
+        {
+            return;
+        }
+        _currentId = (_currentId + 1) % pieces.value.Count;
+        turnPerformed.RaiseEvent();
     }
 }

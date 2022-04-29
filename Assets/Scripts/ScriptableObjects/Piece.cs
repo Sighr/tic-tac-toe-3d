@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu]
+[CreateAssetMenu(menuName = "Variables/Piece")]
 public class Piece : ScriptableObject
 {
     public GameObject prefab;
