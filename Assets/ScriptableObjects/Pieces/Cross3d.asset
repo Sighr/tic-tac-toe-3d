@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Cross3d
   m_EditorClassIdentifier: 
   prefab: {fileID: 3058541803702991636, guid: d8531f6b25c08a54e8765e1992f2bebb, type: 3}
+  name: cross

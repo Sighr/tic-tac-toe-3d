@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 963b630ab58040d295a6049d3ab3cbf8, type: 3}
   m_Name: NextPiece
   m_EditorClassIdentifier: 
-  defaultValue: {fileID: 0}
-  value: {fileID: 0}
+  defaultValue: {fileID: 11400000, guid: 70667a3db0120f040be02baf0f3fb074, type: 2}
+  value: {fileID: 11400000, guid: 70667a3db0120f040be02baf0f3fb074, type: 2}

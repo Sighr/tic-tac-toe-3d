@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Circle3d
   m_EditorClassIdentifier: 
   prefab: {fileID: 4403710419115288468, guid: 9bf605948ced3f14fb7d6eefb79358ae, type: 3}
+  name: circle
