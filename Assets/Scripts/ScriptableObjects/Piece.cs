@@ -4,4 +4,5 @@
 public class Piece : ScriptableObject
 {
     public GameObject prefab;
+    public new string name;
 }

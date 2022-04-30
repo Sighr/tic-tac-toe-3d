@@ -6,7 +6,7 @@ MonoImporter:
   defaultReferences:
   - cellPrefab: {fileID: 3058541803702991636, guid: d8531f6b25c08a54e8765e1992f2bebb, type: 3}
   - cells: {fileID: 11400000, guid: 21532e4c1a6ed104ca082d25e10a7b06, type: 2}
-  executionOrder: 0
+  executionOrder: -90
   icon: {instanceID: 0}
   userData: 
   assetBundleName: 
