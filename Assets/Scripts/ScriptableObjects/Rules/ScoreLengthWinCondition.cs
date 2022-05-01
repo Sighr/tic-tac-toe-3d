@@ -57,7 +57,7 @@ public class ScoreLengthWinCondition : WinCondition
         }
     }
 
-    public override bool HasGameEnded => cells.value.Cast<Cell>().All(cell => cell != null);
+    public override bool HasGameEnded => cells.value.Cast<Cell>().All(cell => cell.pieceFilled != null);
 
 
     public override Dictionary<Piece, int> GetScores()

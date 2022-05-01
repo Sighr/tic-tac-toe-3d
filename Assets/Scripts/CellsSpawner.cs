@@ -7,7 +7,7 @@ public class CellsSpawner : MonoBehaviour
     public GridCellsVariable cells;
     public IntVariable gridDimension;
 
-    private void Start()
+    private void Awake()
     {
         CreateCells();
     }
