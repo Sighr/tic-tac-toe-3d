@@ -32,9 +32,13 @@ public class CameraController : MonoBehaviour
         // TODO: remove magic constant into enum
         if (!Input.GetMouseButton(1))
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             return;
         }
-
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        
         float dx = Input.GetAxis("Mouse X");
         float dy = Input.GetAxis("Mouse Y");
 

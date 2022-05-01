@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Rules/WinConditions/ScoreLength")]
@@ -44,7 +44,18 @@ public class ScoreLengthWinCondition : WinCondition
     }
 
     public override string ShortDescription => "Gain score points by creating long lines";
-    public override string Description => ShortDescription;
+    public override string Description
+    {
+        get
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var scoreTemplateEntry in scoreTemplates)
+            {
+                sb.AppendLine($"line of {scoreTemplateEntry.length} gives {scoreTemplateEntry.score} {(scoreTemplateEntry.score == 1 ? "point" : "points")}");
+            }
+            return sb.ToString();
+        }
+    }
 
     public override bool HasGameEnded => cells.value.Cast<Cell>().All(cell => cell != null);
 
@@ -83,42 +94,6 @@ public class ScoreLengthWinCondition : WinCondition
         return result;
     }
     
-    [ContextMenu("DebugScores")]
-    public void DebugScores()
-    {
-        var result = new Dictionary<Piece, int>();
-        foreach (var piece in pieces.value)
-        {
-            result[piece] = 0;
-        }
-        for (var i = 0; i < cells.dimension.value; i++)
-        {
-            for (var j = 0; j < cells.dimension.value; j++)
-            {
-                for (var k = 0; k < cells.dimension.value; k++)
-                {
-                    var cell = cells.value[i, j, k];
-                    Debug.Log($"Cell {i} {j} {k} {(cell.pieceFilled == null ? "Empty" : cell.pieceFilled.name)}");
-                    if (!cell.isFilled)
-                    {
-                        continue;
-                    }
-
-                    // checking half of possible directions to avoid mirroring
-                    int score = 0;
-                    
-                    foreach (Vector3 direction in CardinalDirections)
-                    {
-                        int length = CheckDirectionSequenceFromStart(i, j, k, direction);
-                        Debug.Log($"{direction} {length}");
-                        score += ApplyScoreTemplate(length);
-                    }
-                    result[cell.pieceFilled] += score;
-                }
-            }
-        }
-    }
-
     private int ApplyScoreTemplate(int length)
     {
         return _scoreTemplatesDict.ContainsKey(length) ? _scoreTemplatesDict[length] : 0;

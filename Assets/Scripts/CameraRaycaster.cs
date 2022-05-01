@@ -19,6 +19,10 @@ public class CameraRaycaster : MonoBehaviour
 
     private void Update()
     {
+        if (!Cursor.visible)
+        {
+            return;
+        }
         Vector3 rayTarget = _camera.ScreenToWorldPoint(
             new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1000));
         var position = transform.position;

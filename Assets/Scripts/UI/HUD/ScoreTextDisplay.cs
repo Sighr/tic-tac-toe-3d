@@ -8,11 +8,11 @@ public class ScoreTextDisplay : MonoBehaviour
     public WinCondition winCondition;
     
     [SerializeField]
-    private Text text;
-
+    private Text scoreText;
+    
     private void OnEnable()
     {
-        text.text = winCondition.ShortDescription;
+        scoreText.text = winCondition.ShortDescription;
     }
 
     public void OnTurnPerformed()
@@ -23,6 +23,6 @@ public class ScoreTextDisplay : MonoBehaviour
         {
             sb.Append($"{score.Key.name} {score.Value}    ");
         }
-        text.text = sb.ToString();
+        scoreText.text = sb.ToString();
     }
 }
