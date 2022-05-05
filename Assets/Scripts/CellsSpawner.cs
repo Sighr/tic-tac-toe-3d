@@ -12,6 +12,15 @@ public class CellsSpawner : MonoBehaviour
         CreateCells();
     }
 
+    public void OnGameStarted()
+    {
+        foreach (var cell in cells.value)
+        {
+            Destroy(cell.gameObject);
+        }
+        CreateCells();
+    }
+    
     [ContextMenu("SpawnCells")]
     private void CreateCells()
     {

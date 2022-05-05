@@ -10,6 +10,11 @@ public class CommonGameEvent : ScriptableObject
     {
         for (int i = _eventListeners.Count - 1; i >= 0; i--)
         {
+            if (_eventListeners.Count <= i)
+            {
+                // for the case of deleting more than one listener in one iteration
+                continue;
+            }
             _eventListeners[i].OnEventRaised();
         }
     }

@@ -12,11 +12,11 @@ public class MenuController : MonoBehaviour
     
     public void OnGameEnded()
     {
-        menu.SetActive(false);
+        menu.SetActive(true);
     }
 
     public void OnGameStarted()
     {
-        menu.SetActive(true);
+        menu.SetActive(false);
     }
 }

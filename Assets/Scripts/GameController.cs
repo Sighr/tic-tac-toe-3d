@@ -5,7 +5,6 @@ public class GameController : MonoBehaviour
     public WinCondition winCondition;
     
     public CommonGameEvent gameEnded;
-    public CommonGameEvent gameStarted;
 
     public void OnTurnPerformed()
     {

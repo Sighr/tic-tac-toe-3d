@@ -25,3 +25,7 @@ MonoBehaviour:
     score: 32
   - length: 6
     score: 70
+  - length: 7
+    score: 150
+  - length: 8
+    score: 400

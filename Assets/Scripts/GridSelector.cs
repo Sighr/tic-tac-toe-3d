@@ -8,9 +8,27 @@ public class GridSelector : MonoBehaviour
     
     private List<Cell> _selected = new List<Cell>();
     private List<Cell> _highlighted = new List<Cell>();
+    private bool isPlaying = true;
+    
+    public void OnGameStarted()
+    {
+        isPlaying = true;
+    }
+    
+    public void OnGameEnded()
+    {
+        isPlaying = false;
+        _highlighted.Clear();
+        _selected.Clear();
+        SetCellsColors();
+    }
 
     public void OnRaycast(RaycastHit[] hits)
     {
+        if (!isPlaying)
+        {
+            return;
+        }
         _highlighted.Clear();
         // TODO: remove magic constant into enum
         if (Input.GetMouseButtonDown(0))

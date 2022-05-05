@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +13,7 @@ public class HideArrowsController : MonoBehaviour, IPointerClickHandler
     
     [SerializeField]
     private RectTransform rectTransform;
+    private RectTransform parentRectTransform;
     
     public class HiddenIndices {
         public int up ;
@@ -39,6 +39,7 @@ public class HideArrowsController : MonoBehaviour, IPointerClickHandler
 
     private void Awake()
     {
+        parentRectTransform = transform.parent.GetComponent<RectTransform>();
         _arrowsDict = new Dictionary<ArrowData.Direction, Dictionary<ArrowData.Mode, ArrowData>>();
         foreach (ArrowData arrow in arrows)
         {
@@ -48,6 +49,13 @@ public class HideArrowsController : MonoBehaviour, IPointerClickHandler
             }
             _arrowsDict[arrow.direction][arrow.mode] = arrow;
         }
+    }
+    
+    public void OnTurnPerformed()
+    {
+        _indices.Reset();
+        AdjustCellVisibility();
+        AdjustArrowVisibility();
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -61,7 +69,7 @@ public class HideArrowsController : MonoBehaviour, IPointerClickHandler
         var rect = rectTransform.rect;
         var point = new Vector3(
             (eventData.position.x - anchoredPosition.x) / rect.width,
-            (eventData.position.y - anchoredPosition.y) / rect.height, 
+            (eventData.position.y - parentRectTransform.rect.height + rect.height) / rect.height, 
             0);
         Ray ray = hideArrowCamera.ViewportPointToRay(point);
         

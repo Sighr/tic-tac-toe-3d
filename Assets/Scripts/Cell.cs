@@ -24,6 +24,8 @@ public class Cell : MonoBehaviour
     public void Deselect()
     {
         isSelected = false;
+        if (_material == null)
+            return;
         _material.color = _baseColor;
     }
 
@@ -34,6 +36,8 @@ public class Cell : MonoBehaviour
             return;
         }
         isSelected = true;
+        if (_material == null)
+            return;
         _material.color = selectColor.value;
     }
 
@@ -43,6 +47,8 @@ public class Cell : MonoBehaviour
         {
             return;
         }
+        if (_material == null)
+            return;
         _material.color = highlightColor.value;
     }
     
